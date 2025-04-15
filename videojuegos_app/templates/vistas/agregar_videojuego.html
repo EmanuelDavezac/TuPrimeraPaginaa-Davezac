@@ -1,0 +1,13 @@
+{% extends 'vistas/base.html' %}
+
+{% block content %}
+<h2>Agregar Videojuego</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    <a href="{% url 'inicio' %}">
+        <button type="button">Volver al menú principal</button>
+    </a>
+</form>
+{% endblock %}

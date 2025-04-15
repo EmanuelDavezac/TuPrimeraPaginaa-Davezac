@@ -1,0 +1,25 @@
+{% extends 'vistas/base.html' %}
+
+{% block content %}
+<h2>Buscar Videojuego</h2>
+<form method="get">
+    <input type="text" name="q" value="{{ query }}" placeholder="Buscar videojuego...">
+    <button type="submit">Buscar</button>
+    <a href="{% url 'inicio' %}"><button type="button">Volver al menú principal</button></a>
+</form>
+
+{% if query %}
+    <h3>Resultados para "{{ query }}":</h3>
+    {% if resultados %}
+        <ul>
+            {% for juego in resultados %}
+                <li><strong>{{ juego.titulo }}</strong> - {{ juego.descripcion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron videojuegos con ese título.</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
+
+

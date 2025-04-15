@@ -1,0 +1,11 @@
+{% extends 'vistas/base.html' %}
+
+{% block content %}
+  <h1>Bienvenido al sistema de videojuegos</h1>
+  <ul>
+    <li><a href="{% url 'agregar_desarrollador' %}">Agregar Desarrollador</a></li>
+    <li><a href="{% url 'agregar_plataforma' %}">Agregar Plataforma</a></li>
+    <li><a href="{% url 'agregar_videojuego' %}">Agregar Videojuego</a></li>
+    <li><a href="{% url 'buscar_videojuego' %}">Buscar Videojuego</a></li>
+  </ul>
+{% endblock %}
