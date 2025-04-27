@@ -3,6 +3,8 @@ from .forms import DesarrolladorForm, VideojuegoForm, PlataformaForm
 from .models import Videojuego
 from django.db.models import Q
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 def inicio(request):
     return render(request, 'vistas/inicio.html')
@@ -48,3 +50,21 @@ def buscar_videojuego(request):
         'resultados': resultados,
         'query': query
     })
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Sesión iniciada correctamente.')
+            return redirect('inicio')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos.')
+    return render(request, 'vistas/login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Sesión cerrada correctamente.')
+    return redirect('inicio')

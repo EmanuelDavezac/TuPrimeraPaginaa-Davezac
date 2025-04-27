@@ -1,11 +1,47 @@
-{% extends 'vistas/base.html' %}
+{% extends "vistas/base.html" %}
 
 {% block content %}
-  <h1>Bienvenido al sistema de videojuegos</h1>
-  <ul>
-    <li><a href="{% url 'agregar_desarrollador' %}">Agregar Desarrollador</a></li>
-    <li><a href="{% url 'agregar_plataforma' %}">Agregar Plataforma</a></li>
-    <li><a href="{% url 'agregar_videojuego' %}">Agregar Videojuego</a></li>
-    <li><a href="{% url 'buscar_videojuego' %}">Buscar Videojuego</a></li>
-  </ul>
+
+<section class="hero d-flex align-items-center justify-content-center text-center text-white" style="min-height: 90vh; background-image: url('https://images.unsplash.com/photo-1606813902914-15e148a6c3e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;">
+  <div class="container">
+    <h1 class="display-3 fw-bold">VideoGame Manager</h1>
+    <p class="lead">Gestioná tu colección de videojuegos como un profesional</p>
+    <a href="#" class="btn btn-lg btn-primary mt-4">Comenzar</a>
+  </div>
+</section>
+
+<section class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="text-center mb-5">¿Qué podés hacer?</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-white h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Agregar Videojuegos</h5>
+            <p class="card-text">Sumá nuevos juegos a tu lista personalizada.</p>
+            <a href="{% url 'agregar_videojuego' %}" class="btn btn-outline-light mt-3">Agregar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-white h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gestionar Plataformas</h5>
+            <p class="card-text">Organizá tus plataformas favoritas fácilmente.</p>
+            <a href="{% url 'agregar_plataforma' %}" class="btn btn-outline-light mt-3">Gestionar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-white h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Buscar Juegos</h5>
+            <p class="card-text">Encontrá rápidamente cualquier videojuego registrado.</p>
+            <a href="{% url 'buscar_videojuego' %}" class="btn btn-outline-light mt-3">Buscar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
